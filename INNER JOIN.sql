@@ -1,9 +1,11 @@
+-- Criação da tabela Cidades       
 CREATE TABLE Cidades (
   id		int PRIMARY KEY,
   nome 		varchar(50) NOT NULL,
   populacao	int 
 );
-  
+
+-- Criação da tabela Alunos   
   CREATE TABLE Alunos (
     id 			int PRIMARY KEY,
     nome 		varchar(60) not NULL,
@@ -12,7 +14,8 @@ CREATE TABLE Cidades (
     
     FOREIGN KEY	(cidade_id)	REFERENCES Cidade(id)
   );
-   
+
+-- Inserindo dados na tabela Cidades
 insert into Cidades values (1, 'Arraial dos Tucanos', 42632);
 
 insert into Cidades values (2, 'Springfield', 13820);
@@ -23,7 +26,7 @@ insert into Cidades values (4, 'Coruscant', 19138);
 
 insert into Cidades values (5,'Minas Tirith', 31394);
 
-
+-- Inserindo dados na tabela Alunos
 insert into Alunos values (1, 'Immanuel Kant', '1724-04-22', 4);
 
 insert into Alunos values (2, 'Alan Turing', '1912-06-23', 3);
@@ -51,6 +54,7 @@ insert into Alunos values (12, 'Richard Feynman', '1982-09-12', 1);
 SELECT * FROM Cidades;
 SELECT * FROM Alunos;
 
+-- Retorna informação dos Alunos e a cidade onde moram por meio do INNER JOIN
 SELECT Alunos.id, Alunos.nome AS nome_aluno, Alunos.data_nasc, Cidades.nome AS nome_cidade, Cidades.populacao
 FROM Alunos
 INNER JOIN Cidades ON Alunos.cidade_id = Cidades.id;
